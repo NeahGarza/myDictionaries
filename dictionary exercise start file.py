@@ -2,7 +2,8 @@
 
 def main():
     # Create a deck of cards.
-   
+    dictionary = create_deck()
+    print(dictionary)
 
     # Get the number of cards to deal.
     num_cards = int(input('How many cards should I deal? '))
@@ -45,7 +46,7 @@ def create_deck():
             'Queen of Diamonds':10, 'King of Diamonds': 10}
 
     # Return the deck.
-
+    return deck
 
 
 
@@ -76,4 +77,4 @@ def deal_cards(deck, number):
     
 
 # Call the main function.
-main()
+    main()
