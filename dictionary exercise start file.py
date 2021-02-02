@@ -1,20 +1,19 @@
 # This program uses a dictionary as a deck of cards.
+import random
 
 def main():
     # Create a deck of cards.
     dictionary = create_deck()
-    print(dictionary)
 
     # Get the number of cards to deal.
     num_cards = int(input('How many cards should I deal? '))
-
-
+    #num_cards = 5
 
     # Deal the cards.
+    deck_val = deal_cards(dictionary, num_cards)
+    print("\nFinal value of hand:", deck_val)
 
 
-    
-    
 
 # The create_deck function returns a dictionary
 # representing a deck of cards.
@@ -55,26 +54,33 @@ def create_deck():
 
 def deal_cards(deck, number):
     # Initialize an accumulator for the hand value.
-
-    
-    
+    total = 0
+    deck_num = 52
 
     # Make sure the number of cards to deal is not
     # greater than the number of cards in the deck.
 
-    
-    
-
-    # Deal the cards and accumulate their values.
-    
-
-
-    
+    if(number <= deck_num and number >= 1):
+        # Deal the cards and accumulate their values.
+        tally = 0
+        rand = list(deck.keys())
+        while(tally < number):
+            #Accessing dictionary key using random number
+            index = random.randint(0, len(rand)-1)
+            key = rand[index]
+            value = deck[key]
+            total = total + value
+            print(rand[index], ":", value)
+            #Removing used key from list
+            rand.pop(index)
+            tally = tally + 1
+    else:
+        print("Error! Number of cards to deal cannot exceed the number of cards in the deck (52) and must be equal to or greater than 1")
 
     # Display the value of the hand.
+    return total
 
-    
-    
 
-# Call the main function.
-    main()
+
+#Calling the main function
+main()
